@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>P list</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://use.fontawesome.com/9e7191ca24.js"></script>
+	
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+	
+	<script src="js/App.js"></script>
+
+</head>
+
+<body>
+<div class="App">
+	<div class="App-header">
+		<img src="css/logo.png" class="App-logo">
+		<h2>Nord Software</h2>
+	</div>
+
+	<div ng-app ="mainApp" ng-controller = "participantController">
+
+		<p class="App-intro">
+			List of participants
+		</p>
+
+	<form class="App-form" name="App-form" ng-submit="addRow()">
+
+	<label>
+		<input type="text" name="name" ng-model="name" placeholder="Full name" ng-required="true" style="width:175px">
+			<div class="field-message" ng-messages="App-form.name.$error" ng-if="App-form.name.$dirty">
+				<div ng-message="required">Full name is required.</div>
+			</div>
+	</label>
+
+	<label>		
+		<input type="email" name="email" ng-model="email" placeholder="E-mail address" ng-required="true" style="width:250px">
+			<div class="field-message" ng-messages="App-form.email.$error" ng-if="App-form.email.$dirty">
+				<div ng-message="required">Valid E-mail address required.</div>
+			</div>
+	</label>
+
+	<label>		
+		<input type="number" name="phone" ng-model="phone" placeholder="Phone number" style="width:200px" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" ng-required="true">
+			<div class="field-message" ng-messages="App-form.phone.$error" ng-if="App-form.phone.$dirty">
+				<div ng-message="required">Valid phone number required.</div>
+				<div ng-message="pattern">Must be a valid 10 digit phone number</div>
+			</div>
+	</label>
+
+		<button type="submit" class="Add-button">Add new</button>
+	</form>
+
+
+	<table class="App-table">
+		<thead>
+			<tr>
+				<td style="height:48px; width:150px">
+					<a ng-click="sortType = 'name'; sortReverse = !sortReverse">
+					Name
+						<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-arrow-down columnSortIcons"></span>
+						<span ng-show="sortType == 'name' && sortReverse" class="fa fa-arrow-up columnSortIcons"></span>
+					</a>
+				</td>
+				<td style="height:48px; width:220px">
+					<a ng-click="sortType = 'email'; sortReverse = !sortReverse">
+					E-mail address
+						<span ng-show="sortType == 'email' && !sortReverse" class="fa fa-arrow-down columnSortIcons"></span>
+						<span ng-show="sortType == 'email' && sortReverse" class="fa fa-arrow-up columnSortIcons"></span>
+					</a>
+				</td>
+				<td style="height:48px; width:175px">
+					<a ng-click="sortType = 'phone'; sortReverse = !sortReverse">
+					Phone number
+						<span ng-show="sortType == 'phone' && !sortReverse" class="fa fa-arrow-down columnSortIcons"></span>
+						<span ng-show="sortType == 'phone' && sortReverse" class="fa fa-arrow-up columnSortIcons"></span>
+					</a>
+				</td>	
+			</tr>
+		</thead>
+	
+		<tbody>
+			<tr ng-repeat="x in Participants | orderBy:sortType:sortReverse track by $index" ng-include="getTemplate(x)">
+			
+			<script type="text/ng-template" id="display">
+				<td style="height:72px">{{ x.name }}</td>
+				<td style="height:72px">{{ x.email }}</td>
+				<td style="height:72px">{{ x.phone }}</td>
+		
+				<td>
+					<button type="button" data-ng-click="removeRow(x)" class="deletebtn fa fa-trash"></button>
+					<button type="button" data-ng-click="editRow(x)" class="editbtn fa fa-pencil"></button>
+				</td>
+			</script>
+	
+			<script type="text/ng-template" id="edit">
+				<td style="height:72px"><input type="text" ng-model="selected.name" class="form-control input-sm" style="width:130px"/></td>
+				<td style="height:72px"><input type="text" ng-model="selected.email" class="form-control input-sm" style="width:240px"/></td>
+				<td style="height:72px"><input type="text" ng-model="selected.phone" class="form-control input-sm" style="width:110px"/></td>
+		
+				<td>
+					<button type="button" ng-click="saveRow($index)" class="savebtn">Save</button>
+					<button type="button" ng-click="reset()" class="canbtn">Cancel</button>
+				</td>
+			</script>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</div>
+
+</body>
+</html>

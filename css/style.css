@@ -1,0 +1,215 @@
+.App {
+	margin:0 auto;
+	width: 1000px;
+	background-color: #EEEEF2;
+	font-family: 'Roboto', sans-serif;
+}
+
+.App-header {
+	background-color: #B2BCC6;
+	height: 96px;
+	color: white;
+}
+
+h2 {
+	position: left;
+	padding-top: 16px;
+	padding-left: 10px; 
+	float: left;
+}
+
+.App-logo {
+	padding-top: 32px;
+	padding-left: 32px;
+	position: left;
+	height: 32px;
+	float: left;
+}
+
+.App-table {
+	background-color: white;
+	margin:0 auto;
+	width: 900px;
+	text-align: left;
+}
+
+table, th, td {
+	border-collapse: collapse;
+	text-align: left;
+}
+
+a {
+	text-decoration: none;
+}
+
+tr {
+	border-bottom: 2px solid #EEEEF2;
+	border-top: 2px solid #EEEEF2;
+	border-collapse: collapse;
+}
+
+td {
+	padding-left: 24px;
+	padding-right: 24px;
+}
+
+table tr:nth-child {
+	padding: 5px;
+}
+
+.App-intro {
+	font-size: 25px;
+	padding-top: 32px;
+	padding-left: 40px;
+	padding-bottom: 10px;
+	color: #696969;
+	font-weight: 550;
+}
+
+.App-form {
+	background-color: white;
+	margin:0 auto;
+	width: 888px;
+	padding-left: 16px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	margin-bottom: 10px;
+}
+
+label {
+	padding-right: 16px;
+}
+
+input {
+	border: none;
+	height: 40px;
+	background-color: #F7F7F7;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	text-indent: 5px;
+	color: #505050;
+}
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: #A8A8A8;
+}
+::-moz-placeholder { /* Firefox 19+ */
+	color: #A8A8A8;
+}
+:-ms-input-placeholder { /* IE 10+ */
+	color: #A8A8A8;
+}
+:-moz-placeholder { /* Firefox 18- */
+	color: #A8A8A8;
+}
+
+input[type="phone"]::-webkit-input-placeholder {
+ color: #A8A8A8;
+}
+
+.Add-button {
+	background-color: #E4E4E8;
+	border: none;
+	color: #636363;
+	height: 40px;
+	width: 95px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px;
+	float: right;
+	margin-right: 16px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+thead {
+	height: 48px;
+	color: #757575;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 500;
+}
+
+tbody {
+	height: 72px;
+	color: #505050;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+}
+
+.editbtn {
+	background: none;
+	border: none;
+	color: #909090;
+	height: 24px;
+	width: 30px;
+	margin-right: 16px;
+	float: right;
+}
+
+.deletebtn {
+	background: none;
+	border: none;
+	color: #909090;
+	height: 24px;
+	width: 30px;
+	float: right;
+}
+
+.savebtn {
+	background-color: #07f;
+	border: none;
+	color: white;
+	height: 40px;
+	width: 65px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 500;
+	float: right;
+	font-family: 'Roboto', sans-serif;
+}
+
+.canbtn {
+	background-color: #EEEEF2;
+	border: none;
+	color: #07f;
+	height: 40px;
+	width: 65px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 500;
+	float: right;
+	margin-right: 10px;
+	font-family: 'Roboto', sans-serif;
+}
+
+span {
+	padding-left: 0.5em;
+}
+
+.field-message {
+  display: inline-block;
+  color:#e9322d;
+  font-size: 90%;
+  margin-left: 0.5em;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+	margin: 0;
+}
